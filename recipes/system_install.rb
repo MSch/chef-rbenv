@@ -35,6 +35,7 @@ template "/etc/profile.d/rbenv.sh" do
   source  "rbenv.sh.erb"
   owner   "root"
   mode    "0755"
+  only_if {node['rbenv']['create_profiled']}
 end
 
 install_or_upgrade_rbenv  :rbenv_prefix => rbenv_prefix,
